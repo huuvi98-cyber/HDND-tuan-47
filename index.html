@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dòng thời gian Hoạt động HĐND TPHCM (23–28/11/2026)</title>
+    <meta
+      name="description"
+      content="Đồ họa timeline tương tác tổng hợp hoạt động chỉ đạo, điều hành trọng tâm của Thường trực HĐND TPHCM và cao điểm thẩm tra các dự thảo nghị quyết của các Ban HĐND TPHCM chuẩn bị Kỳ họp thứ 8."
+    />
+    <meta
+      property="og:title"
+      content="Dòng thời gian Hoạt động HĐND TPHCM (23–28/11/2026)"
+    />
+    <meta
+      property="og:description"
+      content="Tổng hợp các mốc chỉ đạo, điều hành của Thường trực HĐND TPHCM và cao điểm thẩm tra chuyên sâu của 4 Ban chuyên trách chuẩn bị Kỳ họp thứ 8."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Playfair Display (Editorial Display Serif) + Be Vietnam Pro (Vietnamese Sans) + IBM Plex Mono (Tabular Dates) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Playfair Display"', 'Georgia', 'serif'],
+              sans: ['"Be Vietnam Pro"', 'system-ui', '-apple-system', 'sans-serif'],
+              mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+            },
+            colors: {
+              canvas: '#F8F9FA',
+              surface: '#FFFFFF',
+              ink: '#111827',
+              muted: '#4B5563',
+              subtle: '#64748B',
+              rule: '#DCE1E7',
+              crimson: {
+                DEFAULT: '#2563EB',
+                dark: '#1D4ED8',
+                soft: '#EFF6FF',
+                border: '#BFDBFE',
+              },
+              bronze: {
+                DEFAULT: '#8C6226',
+                soft: '#FBF8F1',
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background-color: #f8f9fa;
+        color: #111827;
+      }
+
+      body {
+        font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      .font-editorial {
+        text-wrap: balance;
+      }
+
+      #hero-heading,
+      #section-cac-ban-heading {
+        line-height: 1.26;
+      }
+
+      #hero-heading {
+        text-wrap: normal;
+      }
+
+      h2.font-serif,
+      h3.font-serif {
+        line-height: 1.42;
+      }
+
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Reading Progress Bar (compositor-only scaleX) */
+      #reading-progress-bar {
+        transform-origin: left center;
+        transform: scaleX(0);
+        will-change: transform;
+      }
+
+      /* Vertical Timeline Progress Line (compositor-only scaleY) */
+      .timeline-spine-fill {
+        transform-origin: top center;
+        transform: scaleY(0);
+        transition: transform 180ms linear;
+        will-change: transform;
+      }
+
+      /* Scroll-reveal cards (compositor-only opacity + transform) */
+      .reveal-item {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 640ms var(--ease-out-expo),
+          transform 640ms var(--ease-out-expo);
+        will-change: opacity, transform;
+      }
+
+      .reveal-item.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stagger offsets for adjacent items */
+      .reveal-delay-1 {
+        transition-delay: 80ms;
+      }
+      .reveal-delay-2 {
+        transition-delay: 160ms;
+      }
+      .reveal-delay-3 {
+        transition-delay: 240ms;
+      }
+
+      /* Timeline Node illumination when revealed */
+      .timeline-node-ring {
+        transform: scale(0.85);
+        opacity: 0.45;
+        transition:
+          transform 420ms var(--ease-out-expo),
+          opacity 420ms var(--ease-out-expo),
+          background-color 260ms ease,
+          border-color 260ms ease;
+      }
+
+      .reveal-item.is-visible .timeline-node-ring,
+      .timeline-node-ring.is-active {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      /* Subtle editorial link underline */
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 1.5px;
+        background-color: #2563eb;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 180ms var(--ease-out-expo);
+      }
+      .nav-link:hover::after,
+      .nav-link.is-current::after {
+        transform: scaleX(1);
+      }
+
+      /* Interactive card hover micro-feedback (<= 200ms) */
+      .editorial-card {
+        transition:
+          transform 180ms var(--ease-out-expo),
+          border-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+      .editorial-card:hover {
+        border-color: #c3cbd6;
+        box-shadow: 0 10px 28px -18px rgba(17, 24, 39, 0.16);
+      }
+
+      /* Committee cards: blue surface, white typography, 20% hover zoom */
+      .committee-card {
+        position: relative;
+        z-index: 1;
+        transform-origin: center center;
+        box-shadow: 0 12px 28px -12px rgba(15, 23, 42, 0.28);
+        transition:
+          opacity 640ms var(--ease-out-expo),
+          transform 260ms var(--ease-out-expo),
+          box-shadow 260ms ease,
+          border-color 200ms ease;
+      }
+      .committee-card.is-visible:hover {
+        transform: scale(1.2);
+        transition-delay: 0ms;
+        z-index: 20;
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 24px 48px -16px rgba(29, 78, 216, 0.45);
+      }
+
+      /* Focus-visible accessibility ring */
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+      }
+
+      /* Reduced motion accessibility compliance */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal-item {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        .timeline-spine-fill {
+          transform: scaleY(1) !important;
+          transition: none !important;
+        }
+        .timeline-node-ring {
+          transform: scale(1) !important;
+          opacity: 1 !important;
+          transition: none !important;
+        }
+        .editorial-card,
+        .nav-link::after {
+          transition: none !important;
+        }
+      }
+
+      /* Clean print view for official briefing printouts */
+      @media print {
+        header,
+        #floating-timeline-nav,
+        .no-print {
+          display: none !important;
+        }
+        body {
+          background: #ffffff !important;
+          color: #000000 !important;
+        }
+        .reveal-item {
+          opacity: 1 !important;
+          transform: none !important;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-canvas text-ink antialiased selection:bg-crimson/15 selection:text-crimson-dark">
+    <main id="noi-dung-chinh">
+      <!-- HERO SECTION: Institutional Broadsheet Overview -->
+      <section
+        id="tong-quan"
+        class="bg-white border-b border-rule py-10 lg:py-14"
+        aria-labelledby="hero-heading"
+      >
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h1
+            id="hero-heading"
+            class="font-serif text-3xl/[1.26] sm:text-4xl/[1.26] lg:text-[46px]/[1.26] font-semibold text-crimson tracking-normal"
+          >
+            Hoạt động chỉ đạo, điều hành trọng tâm<br />của Thường trực HĐND TPHCM
+          </h1>
+        </div>
+      </section>
+
+      <!-- SECTION 1: VERTICAL SCROLL TIMELINE — THƯỜNG TRỰC HĐND TPHCM -->
+      <section
+        id="thuong-truc"
+        class="py-12 lg:py-16 bg-crimson/10 border-b border-rule"
+        aria-label="Hoạt động chỉ đạo, điều hành trọng tâm của Thường trực HĐND TPHCM"
+      >
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Vertical Scroll-Progress Timeline Container -->
+          <div id="standing-timeline-track" class="relative">
+            <!-- Continuous Vertical Spine (Left-aligned on mobile, anchored cleanly at 210px on desktop) -->
+            <div
+              class="absolute top-3 bottom-3 left-[15px] md:left-[219px] w-[2px] bg-rule"
+              aria-hidden="true"
+            >
+              <div
+                id="standing-spine-fill"
+                class="timeline-spine-fill w-full h-full bg-crimson"
+              ></div>
+            </div>
+
+            <div class="space-y-12 lg:space-y-16">
+              <!-- MỐC 1: THỨ HAI, 23-11 -->
+              <article
+                id="moc-23-11"
+                data-st-day="23-11"
+                class="timeline-group reveal-item relative grid grid-cols-1 md:grid-cols-[200px_40px_1fr] gap-y-4 md:gap-x-0 items-start"
+              >
+                <!-- Left Date Column -->
+                <div class="pl-11 md:pl-0 md:pr-6 md:text-right pt-0.5">
+                  <time
+                    datetime="2026-11-23"
+                    class="block font-sans text-2xl lg:text-3xl font-semibold text-crimson tabular-nums leading-none"
+                  >
+                    23-11
+                  </time>
+                  <p class="mt-1.5 text-sm font-semibold text-ink">Thứ Hai</p>
+                </div>
+
+                <!-- Center Spine Node -->
+                <div
+                  class="absolute left-[6px] top-1 md:static md:flex md:justify-center md:pt-1.5 z-10"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="timeline-node-ring w-5 h-5 rounded-full bg-white border-[3px] border-crimson flex items-center justify-center"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+                  </div>
+                </div>
+
+                <!-- Right Event Cards Stack -->
+                <div class="pl-11 md:pl-8 space-y-5">
+                  <!-- Sự kiện 1.1 -->
+                  <div class="editorial-card bg-white border border-rule rounded-lg p-6 sm:p-7">
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-sans text-subtle tabular-nums">
+                      <span class="text-crimson font-semibold">Sáng thứ Hai (23-11)</span>
+                    </div>
+                    <h3 class="mt-2.5 font-serif text-xl sm:text-2xl font-semibold text-ink leading-snug">
+                      Hội nghị công bố quy hoạch tổng thể TPHCM thời kỳ 2025 - 2050, tầm nhìn 100 năm
+                    </h3>
+                    <p class="mt-3 text-[15px] text-muted leading-relaxed">
+                      Chủ tịch HĐND TPHCM <strong class="font-semibold text-ink">Võ Văn Minh</strong> dự Hội nghị
+                      công bố quy hoạch tổng thể TPHCM thời kỳ 2025 - 2050, tầm nhìn 100 năm.
+                    </p>
+                    <figure class="mt-5 overflow-hidden rounded-md">
+                      <img
+                        src="/assets/aistudio/HDND_tuan_46-47-tuan_46-h-3_cd4845eb.jpg"
+                        alt="Hội nghị công bố quy hoạch tổng thể TPHCM thời kỳ 2025 - 2050, tầm nhìn 100 năm"
+                        loading="lazy"
+                        referrerpolicy="no-referrer"
+                        class="w-full h-auto block object-cover border-0"
+                      />
+                    </figure>
+                  </div>
+
+                  <!-- Sự kiện 1.2 & 1.3 (Grouped cleanly with hairline divider — zero nested card-in-card) -->
+                  <div class="editorial-card bg-white border border-rule rounded-lg p-6 sm:p-7 divide-y divide-rule">
+                    <div class="pb-6">
+                      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-sans text-subtle tabular-nums">
+                        <span class="text-crimson font-semibold">Trong ngày 23-11</span>
+                      </div>
+                      <h3 class="mt-2.5 font-serif text-xl font-semibold text-ink leading-snug">
+                        Nghe các Ban HĐND báo cáo tiến độ thẩm tra dự thảo nghị quyết
+                      </h3>
+                      <p class="mt-2.5 text-[15px] text-muted leading-relaxed">
+                        Đồng chí <strong class="font-semibold text-ink">Võ Văn Minh</strong> chủ trì nghe các Ban HĐND
+                        báo cáo tiến độ thẩm tra các dự thảo nghị quyết trình Kỳ họp thường lệ cuối năm 2026.
+                      </p>
+                    </div>
+
+                    <div class="pt-6">
+                      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-sans text-subtle tabular-nums">
+                        <span class="text-crimson font-semibold">Chiều 23-11</span>
+                      </div>
+                      <h3 class="mt-2.5 font-serif text-xl font-semibold text-ink leading-snug">
+                        Tọa đàm “Phát triển mô hình khu đô thị khoa học, công nghệ và đổi mới sáng tạo trên địa bàn TPHCM”
+                      </h3>
+                      <p class="mt-2.5 text-[15px] text-muted leading-relaxed">
+                        Chiều cùng ngày, đồng chí <strong class="font-semibold text-ink">Võ Văn Minh</strong> chủ trì
+                        Tọa đàm về “Phát triển mô hình khu đô thị khoa học, công nghệ và đổi mới sáng tạo trên địa bàn TPHCM”.
+                      </p>
+                      <figure class="mt-5 overflow-hidden rounded-md">
+                        <img
+                          src="/assets/aistudio/HDND_tuan_46-47-tuan_46-h-2_0852afa9.jpg"
+                          alt="Đồng chí Võ Văn Minh chủ trì Tọa đàm Phát triển mô hình khu đô thị khoa học, công nghệ và đổi mới sáng tạo trên địa bàn TPHCM"
+                          loading="lazy"
+                          referrerpolicy="no-referrer"
+                          class="w-full h-auto block object-cover border-0"
+                        />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- MỐC 2: THỨ TƯ, 25-11 -->
+              <article
+                id="moc-25-11"
+                data-st-day="25-11"
+                class="timeline-group reveal-item relative grid grid-cols-1 md:grid-cols-[200px_40px_1fr] gap-y-4 md:gap-x-0 items-start"
+              >
+                <!-- Left Date Column -->
+                <div class="pl-11 md:pl-0 md:pr-6 md:text-right pt-0.5">
+                  <time
+                    datetime="2026-11-25"
+                    class="block font-sans text-2xl lg:text-3xl font-semibold text-crimson tabular-nums leading-none"
+                  >
+                    25-11
+                  </time>
+                  <p class="mt-1.5 text-sm font-semibold text-ink">Thứ Tư</p>
+                </div>
+
+                <!-- Center Spine Node -->
+                <div
+                  class="absolute left-[6px] top-1 md:static md:flex md:justify-center md:pt-1.5 z-10"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="timeline-node-ring w-5 h-5 rounded-full bg-white border-[3px] border-crimson flex items-center justify-center"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+                  </div>
+                </div>
+
+                <!-- Right Event Card -->
+                <div class="pl-11 md:pl-8">
+                  <div class="editorial-card bg-white border border-rule rounded-lg p-6 sm:p-7 divide-y divide-rule">
+                    <div class="pb-6">
+                      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-sans text-subtle tabular-nums">
+                        <span class="text-crimson font-semibold">Sáng thứ Tư (25-11)</span>
+                      </div>
+                      <h3 class="mt-2.5 font-serif text-xl sm:text-2xl font-semibold text-ink leading-snug">
+                        Hội nghị Tiếp xúc cử tri chuyên đề ngành Y tế
+                      </h3>
+                      <p class="mt-3 text-[15px] text-muted leading-relaxed">
+                        Thường trực HĐND tổ chức Hội nghị Tiếp xúc cử tri chuyên đề ngành Y tế, kết nối trực tiếp và
+                        trực tuyến đến các điểm cầu trên địa bàn Thành phố.
+                      </p>
+                    </div>
+
+                    <div class="pt-6">
+                      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-sans text-subtle tabular-nums">
+                        <span class="text-crimson font-semibold">Chiều 25-11</span>
+                      </div>
+                      <h3 class="mt-2.5 font-serif text-xl font-semibold text-ink leading-snug">
+                        Giám sát công tác giải quyết đơn thư khiếu nại, tố cáo của công dân
+                      </h3>
+                      <p class="mt-2.5 text-[15px] text-muted leading-relaxed">
+                        Chiều cùng ngày, Thường trực HĐND tiến hành giám sát công tác giải quyết đơn thư khiếu nại,
+                        tố cáo của công dân.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- MỐC 3: THỨ SÁU, 27-11 -->
+              <article
+                id="moc-27-11"
+                data-st-day="27-11"
+                class="timeline-group reveal-item relative grid grid-cols-1 md:grid-cols-[200px_40px_1fr] gap-y-4 md:gap-x-0 items-start"
+              >
+                <!-- Left Date Column -->
+                <div class="pl-11 md:pl-0 md:pr-6 md:text-right pt-0.5">
+                  <time
+                    datetime="2026-11-27"
+                    class="block font-sans text-2xl lg:text-3xl font-semibold text-crimson tabular-nums leading-none"
+                  >
+                    27-11
+                  </time>
+                  <p class="mt-1.5 text-sm font-semibold text-ink">Thứ Sáu</p>
+                </div>
+
+                <!-- Center Spine Node -->
+                <div
+                  class="absolute left-[6px] top-1 md:static md:flex md:justify-center md:pt-1.5 z-10"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="timeline-node-ring w-5 h-5 rounded-full bg-white border-[3px] border-crimson flex items-center justify-center"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+                  </div>
+                </div>
+
+                <!-- Right Event Cards -->
+                <div class="pl-11 md:pl-8 space-y-5">
+                  <!-- Key Anchor Card: Phiên họp liên tịch Thường trực HĐND & UBND -->
+                  <div class="editorial-card bg-white border border-crimson-border rounded-lg p-6 sm:p-7">
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-sans text-subtle tabular-nums">
+                      <span class="text-crimson font-semibold">Sáng thứ Sáu (27-11)</span>
+                    </div>
+                    <h3 class="mt-2.5 font-serif text-xl sm:text-2xl font-semibold text-ink leading-snug">
+                      Phiên họp thống nhất lần cuối giữa Thường trực HĐND và Thường trực UBND Thành phố
+                    </h3>
+                    <p class="mt-3 text-[15px] text-muted leading-relaxed">
+                      Chủ tịch HĐND TPHCM <strong class="font-semibold text-ink">Võ Văn Minh</strong> và Chủ tịch
+                      UBND TPHCM <strong class="font-semibold text-ink">Lê Quốc Phong</strong> đồng chủ trì phiên họp
+                      giữa Thường trực HĐND và Thường trực UBND Thành phố để cho ý kiến thống nhất lần cuối đối với toàn
+                      bộ Tờ trình, dự thảo Nghị quyết trình Kỳ họp thứ 8.
+                    </p>
+                  </div>
+
+                  <!-- Hội thảo khoa học bảo vệ trẻ em -->
+                  <div class="editorial-card bg-white border border-rule rounded-lg p-6 sm:p-7">
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-sans text-subtle tabular-nums">
+                      <span class="text-crimson font-semibold">Sáng 27-11</span>
+                    </div>
+                    <h3 class="mt-2.5 font-serif text-xl font-semibold text-ink leading-snug">
+                      Hoàn thiện, phát triển hệ thống mạng lưới bảo vệ trẻ em trên địa bàn Thành phố
+                    </h3>
+                    <p class="mt-2.5 text-[15px] text-muted leading-relaxed">
+                      Cũng trong sáng 27-11, Thường trực HĐND tổ chức Hội thảo khoa học về hoàn thiện, phát triển hệ
+                      thống mạng lưới bảo vệ trẻ em trên địa bàn Thành phố.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: CAO ĐIỂM THẨM TRA CHUYÊN SÂU CỦA 4 BAN HĐND TPHCM -->
+      <section
+        id="cac-ban"
+        class="pt-16 lg:pt-24 bg-white"
+        aria-labelledby="section-cac-ban-heading"
+      >
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="pb-10 border-b border-rule">
+            <h2
+              id="section-cac-ban-heading"
+              class="font-serif text-3xl/[1.26] sm:text-4xl/[1.26] lg:text-[46px]/[1.26] font-semibold text-crimson tracking-normal max-w-4xl"
+            >
+              Cao điểm thẩm tra chuyên sâu các dự thảo nghị quyết của các Ban HĐND TPHCM
+            </h2>
+          </div>
+
+          <!-- 2x2 Committee Dossier Grid with Internal Chronological Micro-Timelines -->
+          <div id="committees-grid" class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- 01. BAN KINH TẾ - NGÂN SÁCH -->
+            <article
+              data-ban-card="kinh-te"
+              class="committee-card reveal-item bg-crimson text-white border border-blue-400/35 rounded-lg p-6 sm:p-8 flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-white">
+                  Ban Kinh tế - Ngân sách
+                </h3>
+
+                <!-- Internal Vertical Micro-Timeline -->
+                <ol class="mt-6 relative pl-6 space-y-5 before:content-[''] before:absolute before:left-[5px] before:top-2 before:bottom-2 before:w-[1.5px] before:bg-[#BFDBFE]">
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-crimson border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Ngày 25-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Tập trung thẩm tra các dự thảo nghị quyết thuộc lĩnh vực <strong class="font-semibold text-white">nông nghiệp, công thương</strong>.
+                    </p>
+                  </li>
+
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-crimson border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Ngày 26-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Thẩm tra các dự thảo nghị quyết thuộc lĩnh vực <strong class="font-semibold text-white">xây dựng, du lịch, công nghiệp</strong>.
+                    </p>
+                  </li>
+
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-crimson border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Ngày 27-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Thẩm tra các dự thảo nghị quyết thuộc lĩnh vực <strong class="font-semibold text-white">đầu tư, tài chính</strong>.
+                    </p>
+                  </li>
+
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-[#BFDBFE] border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Sáng 28-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Thẩm tra dự thảo Nghị quyết về <strong class="font-semibold text-white">dự toán ngân sách năm 2027</strong>,
+                      kế hoạch vay, trả nợ chính quyền địa phương.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </article>
+
+            <!-- 02. BAN ĐÔ THỊ -->
+            <article
+              data-ban-card="do-thi"
+              class="committee-card reveal-item reveal-delay-1 bg-crimson text-white border border-blue-400/35 rounded-lg p-6 sm:p-8 flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-white">
+                  Ban Đô thị
+                </h3>
+
+                <ol class="mt-6 relative pl-6 space-y-5 before:content-[''] before:absolute before:left-[5px] before:top-2 before:bottom-2 before:w-[1.5px] before:bg-[#BFDBFE]">
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-crimson border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Cả ngày 25-11, 26-11 và chiều 27-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Tổ chức thẩm tra đối với <strong class="font-semibold text-white">toàn bộ nội dung dự kiến trình Kỳ họp thứ 8</strong>
+                      thuộc lĩnh vực đô thị.
+                    </p>
+                  </li>
+
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-[#BFDBFE] border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Nhóm nghị quyết trọng điểm</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Thẩm tra nhóm nghị quyết triển khai <strong class="font-semibold text-white">Luật Phát triển đô thị</strong>
+                      trong lĩnh vực khoa học công nghệ.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </article>
+
+            <!-- 03. BAN VĂN HÓA - XÃ HỘI -->
+            <article
+              data-ban-card="van-hoa"
+              class="committee-card reveal-item bg-crimson text-white border border-blue-400/35 rounded-lg p-6 sm:p-8 flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-white">
+                  Ban Văn hóa - Xã hội
+                </h3>
+
+                <ol class="mt-6 relative pl-6 space-y-5 before:content-[''] before:absolute before:left-[5px] before:top-2 before:bottom-2 before:w-[1.5px] before:bg-[#BFDBFE]">
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-crimson border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Ngày 25-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Thẩm tra các nội dung của <strong class="font-semibold text-white">Sở Y tế, Sở Nội vụ, Sở NN-MT, Sở Dân tộc và Tôn giáo</strong>.
+                    </p>
+                  </li>
+
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-crimson border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Ngày 26 và 27-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Thẩm tra lĩnh vực <strong class="font-semibold text-white">văn hóa, thể thao, GD-ĐT</strong>.
+                    </p>
+                  </li>
+
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-[#BFDBFE] border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="text-[15px] text-white/95 leading-relaxed">
+                      Đồng thời họp duyệt kịch bản và duyệt phim Chương trình <strong class="font-semibold text-white">“Dân hỏi - Chính quyền trả lời” tháng 12-2026</strong>.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </article>
+
+            <!-- 04. BAN PHÁP CHẾ -->
+            <article
+              data-ban-card="phap-che"
+              class="committee-card reveal-item reveal-delay-1 bg-crimson text-white border border-blue-400/35 rounded-lg p-6 sm:p-8 flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-serif text-2xl font-semibold text-white">
+                  Ban Pháp chế
+                </h3>
+
+                <ol class="mt-6 relative pl-6">
+                  <li class="relative">
+                    <span
+                      class="absolute -left-6 top-1.5 w-[11px] h-[11px] rounded-full bg-[#BFDBFE] border-2 border-[#BFDBFE]"
+                      aria-hidden="true"
+                    ></span>
+                    <p class="font-sans text-xs font-semibold text-white tabular-nums">Ngày 25 và 26-11</p>
+                    <p class="mt-1 text-[15px] text-white/95 leading-relaxed">
+                      Tổ chức thẩm tra đối với các dự thảo nghị quyết thuộc <strong class="font-semibold text-white">lĩnh vực pháp chế</strong>, khảo sát quy định các <strong class="font-semibold text-white">chính sách, biện pháp đặc biệt</strong> để tháo gỡ khó khăn, vướng mắc cho các dự án chậm triển khai trên địa bàn Thành phố.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Full-Bleed Panoramic Ho Chi Minh City Skyline Below Committee Cards -->
+        <figure class="relative mt-14 lg:mt-20 w-full overflow-hidden">
+          <div
+            class="pointer-events-none absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-white via-white/45 to-transparent z-10"
+            aria-hidden="true"
+          ></div>
+          <img
+            src="/assets/aistudio/F9678E6EABD272C0F0FFAE161ABCF449_1e9c853b.jpg"
+            alt="Toàn cảnh sông Sài Gòn và đô thị Thành phố Hồ Chí Minh"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            class="w-full h-auto block object-cover"
+          />
+        </figure>
+      </section>
+
+    </main>
+
+    <!-- Vanilla JavaScript wrapped strictly inside DOMContentLoaded -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // 1. Synchronized Day-by-Day Schedule Data (100% faithful to source brief)
+        const scheduleByDay = {
+          '23-11': {
+            dateLabel: 'Thứ Hai · Ngày 23-11-2026',
+            title: 'Khởi động tuần công tác: Quy hoạch tổng thể & Đô thị đổi mới sáng tạo',
+            countLabel: '03 đầu việc trọng tâm',
+            items: [
+              {
+                time: 'Sáng 23-11',
+                unit: 'Thường trực HĐND',
+                text: 'Chủ tịch HĐND TPHCM Võ Văn Minh dự Hội nghị công bố quy hoạch tổng thể TPHCM thời kỳ 2025 - 2050, tầm nhìn 100 năm.',
+              },
+              {
+                time: 'Trong ngày 23-11',
+                unit: 'Thường trực HĐND',
+                text: 'Đồng chí Võ Văn Minh chủ trì nghe các Ban HĐND báo cáo tiến độ thẩm tra các dự thảo nghị quyết trình Kỳ họp thường lệ cuối năm 2026.',
+              },
+              {
+                time: 'Chiều 23-11',
+                unit: 'Thường trực HĐND',
+                text: 'Đồng chí Võ Văn Minh chủ trì Tọa đàm về “Phát triển mô hình khu đô thị khoa học, công nghệ và đổi mới sáng tạo trên địa bàn TPHCM”.',
+              },
+            ],
+          },
+          '25-11': {
+            dateLabel: 'Thứ Tư · Ngày 25-11-2026',
+            title: 'Tiếp xúc cử tri chuyên đề Y tế & đồng loạt mở đợt thẩm tra của 4 Ban',
+            countLabel: '06 đầu việc song song',
+            items: [
+              {
+                time: 'Sáng 25-11',
+                unit: 'Thường trực HĐND',
+                text: 'Tổ chức Hội nghị Tiếp xúc cử tri chuyên đề ngành Y tế, kết nối trực tiếp và trực tuyến đến các điểm cầu trên địa bàn Thành phố.',
+              },
+              {
+                time: 'Chiều 25-11',
+                unit: 'Thường trực HĐND',
+                text: 'Tiến hành giám sát công tác giải quyết đơn thư khiếu nại, tố cáo của công dân.',
+              },
+              {
+                time: 'Ngày 25-11',
+                unit: 'Ban Kinh tế - Ngân sách',
+                text: 'Tập trung thẩm tra các dự thảo nghị quyết thuộc lĩnh vực nông nghiệp, công thương.',
+              },
+              {
+                time: 'Cả ngày 25-11',
+                unit: 'Ban Đô thị',
+                text: 'Tổ chức thẩm tra toàn bộ nội dung dự kiến trình Kỳ họp thứ 8 thuộc lĩnh vực đô thị và nhóm nghị quyết triển khai Luật Phát triển đô thị trong lĩnh vực khoa học công nghệ.',
+              },
+              {
+                time: 'Ngày 25-11',
+                unit: 'Ban Văn hóa - Xã hội',
+                text: 'Thẩm tra các nội dung của Sở Y tế, Sở Nội vụ, Sở NN-MT, Sở Dân tộc và Tôn giáo.',
+              },
+              {
+                time: 'Ngày 25-11',
+                unit: 'Ban Pháp chế',
+                text: 'Thẩm tra các dự thảo nghị quyết lĩnh vực pháp chế; khảo sát quy định các chính sách, biện pháp đặc biệt để tháo gỡ khó khăn, vướng mắc cho các dự án chậm triển khai trên địa bàn Thành phố.',
+              },
+            ],
+          },
+          '26-11': {
+            dateLabel: 'Thứ Năm · Ngày 26-11-2026',
+            title: 'Cao điểm thẩm tra chuyên sâu trên toàn bộ 4 Ban HĐND TPHCM',
+            countLabel: '04 Ban đồng loạt triển khai',
+            items: [
+              {
+                time: 'Ngày 26-11',
+                unit: 'Ban Kinh tế - Ngân sách',
+                text: 'Thẩm tra các dự thảo nghị quyết thuộc lĩnh vực xây dựng, du lịch, công nghiệp.',
+              },
+              {
+                time: 'Cả ngày 26-11',
+                unit: 'Ban Đô thị',
+                text: 'Tiếp tục thẩm tra toàn bộ nội dung dự kiến trình Kỳ họp thứ 8 thuộc lĩnh vực đô thị và nhóm nghị quyết triển khai Luật Phát triển đô thị trong lĩnh vực khoa học công nghệ.',
+              },
+              {
+                time: 'Ngày 26-11',
+                unit: 'Ban Văn hóa - Xã hội',
+                text: 'Thẩm tra lĩnh vực văn hóa, thể thao, GD-ĐT; đồng thời họp duyệt kịch bản và duyệt phim Chương trình “Dân hỏi - Chính quyền trả lời” tháng 12-2026.',
+              },
+              {
+                time: 'Ngày 26-11',
+                unit: 'Ban Pháp chế',
+                text: 'Tiếp tục thẩm tra lĩnh vực pháp chế và khảo sát quy định các chính sách, biện pháp đặc biệt để tháo gỡ khó khăn, vướng mắc cho các dự án chậm triển khai trên địa bàn Thành phố.',
+              },
+            ],
+          },
+          '27-11': {
+            dateLabel: 'Thứ Sáu · Ngày 27-11-2026',
+            title: 'Thống nhất lần cuối nội dung Kỳ họp thứ 8 & Hội thảo bảo vệ trẻ em',
+            countLabel: '05 đầu việc trọng tâm',
+            items: [
+              {
+                time: 'Sáng 27-11',
+                unit: 'Thường trực HĐND & UBND',
+                text: 'Chủ tịch HĐND TPHCM Võ Văn Minh và Chủ tịch UBND TPHCM Lê Quốc Phong đồng chủ trì phiên họp giữa Thường trực HĐND và Thường trực UBND Thành phố để cho ý kiến thống nhất lần cuối đối với toàn bộ Tờ trình, dự thảo Nghị quyết trình Kỳ họp thứ 8.',
+              },
+              {
+                time: 'Sáng 27-11',
+                unit: 'Thường trực HĐND',
+                text: 'Tổ chức Hội thảo khoa học về hoàn thiện, phát triển hệ thống mạng lưới bảo vệ trẻ em trên địa bàn Thành phố.',
+              },
+              {
+                time: 'Ngày 27-11',
+                unit: 'Ban Kinh tế - Ngân sách',
+                text: 'Thẩm tra các dự thảo nghị quyết thuộc lĩnh vực đầu tư, tài chính.',
+              },
+              {
+                time: 'Chiều 27-11',
+                unit: 'Ban Đô thị',
+                text: 'Hoàn tất phiên thẩm tra nội dung trình Kỳ họp thứ 8 thuộc lĩnh vực đô thị và nhóm nghị quyết triển khai Luật Phát triển đô thị trong lĩnh vực khoa học công nghệ.',
+              },
+              {
+                time: 'Ngày 27-11',
+                unit: 'Ban Văn hóa - Xã hội',
+                text: 'Tiếp tục thẩm tra lĩnh vực văn hóa, thể thao, GD-ĐT; họp duyệt kịch bản và duyệt phim Chương trình “Dân hỏi - Chính quyền trả lời” tháng 12-2026.',
+              },
+            ],
+          },
+          '28-11': {
+            dateLabel: 'Thứ Bảy · Ngày 28-11-2026',
+            title: 'Hoàn tất thẩm tra dự toán ngân sách năm 2027 và kế hoạch vay, trả nợ',
+            countLabel: '01 phiên thẩm tra sáng',
+            items: [
+              {
+                time: 'Sáng 28-11',
+                unit: 'Ban Kinh tế - Ngân sách',
+                text: 'Thẩm tra dự thảo Nghị quyết về dự toán ngân sách năm 2027, kế hoạch vay, trả nợ chính quyền địa phương.',
+              },
+            ],
+          },
+        };
+
+        // 2. Smooth Scroll Reveal via IntersectionObserver
+        const revealElements = Array.from(document.querySelectorAll('.reveal-item'));
+
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+          revealElements.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            {
+              root: null,
+              rootMargin: '0px 0px -8% 0px',
+              threshold: 0.08,
+            }
+          );
+
+          revealElements.forEach((el) => revealObserver.observe(el));
+        }
+
+        // 3. Scroll-Driven Reading Progress Bar & Vertical Timeline Spine Fill (rAF-throttled)
+        const readingBar = document.getElementById('reading-progress-bar');
+        const timelineTrack = document.getElementById('standing-timeline-track');
+        const timelineSpineFill = document.getElementById('standing-spine-fill');
+        const navLinks = Array.from(document.querySelectorAll('[data-nav-section]'));
+        const trackedSections = ['tong-quan', 'thuong-truc', 'cac-ban', 'ma-tran']
+          .map((id) => document.getElementById(id))
+          .filter(Boolean);
+
+        let ticking = false;
+
+        function updateScrollVisuals() {
+          const scrollY = window.scrollY || window.pageYOffset;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+          // Update top progress line
+          if (readingBar && docHeight > 0) {
+            const pageProgress = Math.min(1, Math.max(0, scrollY / docHeight));
+            readingBar.style.transform = `scaleX(${pageProgress.toFixed(4)})`;
+          }
+
+          // Update vertical timeline spine progress
+          if (timelineTrack && timelineSpineFill && !prefersReducedMotion) {
+            const rect = timelineTrack.getBoundingClientRect();
+            const viewportAnchor = window.innerHeight * 0.62;
+            const total = rect.height || 1;
+            const progressed = viewportAnchor - rect.top;
+            const ratio = Math.min(1, Math.max(0, progressed / total));
+            timelineSpineFill.style.transform = `scaleY(${ratio.toFixed(4)})`;
+          }
+
+          // Active header nav link highlighting
+          let activeSectionId = 'tong-quan';
+          const offsetCheck = scrollY + 140;
+          trackedSections.forEach((sec) => {
+            if (sec.offsetTop <= offsetCheck) {
+              activeSectionId = sec.id;
+            }
+          });
+          navLinks.forEach((link) => {
+            const isCurrent = link.getAttribute('data-nav-section') === activeSectionId;
+            link.classList.toggle('is-current', isCurrent);
+            link.classList.toggle('text-ink', isCurrent);
+          });
+
+          ticking = false;
+        }
+
+        window.addEventListener(
+          'scroll',
+          () => {
+            if (!ticking) {
+              window.requestAnimationFrame(updateScrollVisuals);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+        window.addEventListener('resize', updateScrollVisuals, { passive: true });
+        updateScrollVisuals();
+
+        // 4. Interactive Filter for Section 1 (Thường trực HĐND Timeline)
+        const stFilterBtns = Array.from(document.querySelectorAll('.st-filter-btn'));
+        const stTimelineGroups = Array.from(document.querySelectorAll('[data-st-day]'));
+
+        function setStandingFilter(selectedDay) {
+          stFilterBtns.forEach((btn) => {
+            const isActive = btn.getAttribute('data-st-filter') === selectedDay;
+            btn.setAttribute('aria-pressed', String(isActive));
+            btn.classList.toggle('bg-white', isActive);
+            btn.classList.toggle('text-ink', isActive);
+            btn.classList.toggle('shadow-sm', isActive);
+            btn.classList.toggle('text-muted', !isActive);
+          });
+
+          stTimelineGroups.forEach((group) => {
+            const day = group.getAttribute('data-st-day');
+            const shouldShow = selectedDay === 'all' || day === selectedDay;
+            group.classList.toggle('hidden', !shouldShow);
+            if (shouldShow) {
+              group.classList.add('is-visible');
+            }
+          });
+
+          updateScrollVisuals();
+        }
+
+        stFilterBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            setStandingFilter(btn.getAttribute('data-st-filter'));
+          });
+        });
+
+        // 5. Interactive Filter for Section 2 (4 Ban chuyên trách)
+        const banFilterBtns = Array.from(document.querySelectorAll('.ban-filter-btn'));
+        const banCards = Array.from(document.querySelectorAll('[data-ban-card]'));
+        const committeesGrid = document.getElementById('committees-grid');
+
+        function setCommitteeFilter(selectedBan) {
+          banFilterBtns.forEach((btn) => {
+            const isActive = btn.getAttribute('data-ban-filter') === selectedBan;
+            btn.setAttribute('aria-pressed', String(isActive));
+            btn.classList.toggle('bg-white', isActive);
+            btn.classList.toggle('text-ink', isActive);
+            btn.classList.toggle('shadow-sm', isActive);
+            btn.classList.toggle('text-muted', !isActive);
+          });
+
+          banCards.forEach((card) => {
+            const key = card.getAttribute('data-ban-card');
+            const shouldShow = selectedBan === 'all' || key === selectedBan;
+            card.classList.toggle('hidden', !shouldShow);
+            if (shouldShow) {
+              card.classList.add('is-visible');
+            }
+          });
+
+          if (committeesGrid) {
+            committeesGrid.classList.toggle('lg:grid-cols-1', selectedBan !== 'all');
+            committeesGrid.classList.toggle('lg:grid-cols-2', selectedBan === 'all');
+          }
+        }
+
+        banFilterBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            setCommitteeFilter(btn.getAttribute('data-ban-filter'));
+          });
+        });
+
+        // 6. Interactive Horizontal Date Stepper (Section 3: Lịch trình tổng hợp theo ngày)
+        const matrixTabs = Array.from(document.querySelectorAll('.matrix-day-tab'));
+        const matrixPanel = document.getElementById('matrix-day-panel');
+
+        function renderMatrixDay(dayKey) {
+          const data = scheduleByDay[dayKey];
+          if (!data || !matrixPanel) return;
+
+          matrixTabs.forEach((tab) => {
+            const isSelected = tab.getAttribute('data-matrix-day') === dayKey;
+            tab.setAttribute('aria-selected', String(isSelected));
+            tab.classList.toggle('border-crimson', isSelected);
+            tab.classList.toggle('border-rule', !isSelected);
+            const dateSpan = tab.querySelector('span:first-child');
+            if (dateSpan) {
+              dateSpan.classList.toggle('text-crimson', isSelected);
+              dateSpan.classList.toggle('text-ink', !isSelected);
+            }
+          });
+
+          // Build clean DOM safely (no raw unescaped untrusted HTML injection)
+          matrixPanel.textContent = '';
+
+          const headerDiv = document.createElement('div');
+          headerDiv.className =
+            'flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-5 border-b border-rule';
+
+          const headerLeft = document.createElement('div');
+          const dateP = document.createElement('p');
+          dateP.className = 'font-sans text-xs text-crimson font-semibold tabular-nums';
+          dateP.textContent = data.dateLabel;
+
+          const titleH3 = document.createElement('h3');
+          titleH3.className = 'mt-1 font-serif text-2xl font-semibold text-ink';
+          titleH3.textContent = data.title;
+
+          headerLeft.appendChild(dateP);
+          headerLeft.appendChild(titleH3);
+
+          const countSpan = document.createElement('span');
+          countSpan.className = 'font-sans text-xs text-subtle tabular-nums shrink-0';
+          countSpan.textContent = data.countLabel;
+
+          headerDiv.appendChild(headerLeft);
+          headerDiv.appendChild(countSpan);
+
+          const listDiv = document.createElement('div');
+          listDiv.className = 'mt-6 divide-y divide-rule';
+
+          data.items.forEach((item) => {
+            const row = document.createElement('div');
+            row.className =
+              'py-4 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-[190px_1fr] gap-2 md:gap-6';
+
+            const metaCol = document.createElement('div');
+            metaCol.className = 'font-sans text-xs text-subtle tabular-nums';
+
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'text-crimson font-semibold';
+            timeSpan.textContent = item.time;
+
+            const unitSpan = document.createElement('span');
+            unitSpan.className = 'block mt-0.5 text-ink font-sans font-medium';
+            unitSpan.textContent = item.unit;
+
+            metaCol.appendChild(timeSpan);
+            metaCol.appendChild(unitSpan);
+
+            const bodyP = document.createElement('p');
+            bodyP.className = 'text-[15px] text-muted leading-relaxed';
+            bodyP.textContent = item.text;
+
+            row.appendChild(metaCol);
+            row.appendChild(bodyP);
+            listDiv.appendChild(row);
+          });
+
+          matrixPanel.appendChild(headerDiv);
+          matrixPanel.appendChild(listDiv);
+        }
+
+        matrixTabs.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            renderMatrixDay(tab.getAttribute('data-matrix-day'));
+          });
+        });
+
+        // 7. Hero Quick Day-Jump Index Buttons (smooth scroll to exact timeline milestone or day matrix)
+        const dayJumpBtns = Array.from(document.querySelectorAll('.day-jump-btn'));
+        dayJumpBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const targetDay = btn.getAttribute('data-jump-day');
+            const standingMilestone = document.getElementById(`moc-${targetDay}`);
+
+            if (standingMilestone) {
+              // Ensure filter shows all so target milestone is visible before scrolling
+              setStandingFilter('all');
+              const yOffset = standingMilestone.getBoundingClientRect().top + window.scrollY - 92;
+              window.scrollTo({
+                top: yOffset,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth',
+              });
+            } else {
+              // 26-11 and 28-11 are Committee scrutiny days: sync the Day Matrix and scroll smoothly there
+              renderMatrixDay(targetDay);
+              const matrixSection = document.getElementById('ma-tran');
+              if (matrixSection) {
+                const yOffset = matrixSection.getBoundingClientRect().top + window.scrollY - 76;
+                window.scrollTo({
+                  top: yOffset,
+                  behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                });
+              }
+            }
+          });
+        });
+
+        // 8. Primary Print Briefing Action & Back-to-Top Action
+        const printBtn = document.getElementById('btn-print-briefing');
+        if (printBtn) {
+          printBtn.addEventListener('click', () => {
+            window.print();
+          });
+        }
+
+        const scrollTopBtn = document.getElementById('btn-scroll-top');
+        if (scrollTopBtn) {
+          scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+              top: 0,
+              behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

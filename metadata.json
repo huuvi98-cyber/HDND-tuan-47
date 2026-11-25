@@ -1,0 +1,6 @@
+{
+  "name": "Dòng thời gian Hoạt động HĐND TPHCM (23–28/11/2026)",
+  "description": "Đồ họa timeline tương tác tổng hợp hoạt động chỉ đạo, điều hành trọng tâm của Thường trực HĐND TPHCM và cao điểm thẩm tra các dự thảo nghị quyết của các Ban HĐND TPHCM chuẩn bị Kỳ họp thứ 8.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
